@@ -1,5 +1,6 @@
                                  
-                                                  ##Android动画
+                                                  ##
+                                                  Android动画
                                                   
 在app中增加一些动画效果能使我们的app更加绚丽，本文主要总结android中的Animation的使用
 
