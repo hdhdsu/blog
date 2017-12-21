@@ -1,11 +1,5 @@
-<!--
-author: 冷火-王胜 
-date: 2017-2-28 
-title: 自定义View学习总结(二)
-tags: Android View
-category: Android
-status: publish 
--->
+自定义view学习（二）
+=====
 在我们的自定义学习总结的第一篇，介绍了自定义控件的基本流程，几个核心方法和核心api，这篇主要介绍给自定义控件增加属性，就像系统控件TextView有自己的属性textSize,text一样，我们自己自定义的控件也可以有自己的属性，这样就可以跟系统控件一样，在我们的xml里面能用自己定义的属性。
 1.在values目录下新建attrs.xml文件
 
