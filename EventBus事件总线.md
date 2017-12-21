@@ -226,4 +226,5 @@ threadMode就是旧版本接收信息运行的方法。
 
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/4669002-2ee6adac224e9e66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 我引入的EventBus3.0但是一开始在订阅者的接收方法里面没有加注解,所以报了以上的错误
