@@ -1,13 +1,6 @@
-<!--
-author: 冷火-王胜 
-date: 2017-2-8 
-title: Android中的事件分发和处理
-tags: Android view
-category: Android
-status: publish 
--->
-###我们在开发过程中都会跟各种各样的view打交道，例如经常会用到onClick,onTouch,onTouchEvent,但是对于这些view事件都是一知半解，本文主要是通过研究view的事件分发和处理让我们更好的了解view
-####首先我们要先了解android中事件是什么
+## Android事件分发和处理
+我们在开发过程中都会跟各种各样的view打交道，例如经常会用到onClick,onTouch,onTouchEvent,但是对于这些view事件都是一知半解，本文主要是通过研究view的事件分发和处理让我们更好的了解view
+#### 首先我们要先了解android中事件是什么
 	MotionEvent表示用户的触摸事件，用户的一次点击、触摸或者滑动都会产生一系列的MotionEvent：
 	MotionEvent.ACTION_DOWN 表示用户的手指刚接触到屏幕
 	MotionEvent.ACTION_MOVE 表示用户的手指正在移动
@@ -17,7 +10,7 @@ status: publish
 	点击屏幕然后松开，Down->Up  
 	点击屏幕，然后滑动一段距离，松开屏幕 ，Down->Move->…->Move->Up
 
-####我们先了解view的事件分发，然后再去了解ViewGroup的事件分发
+#### 我们先了解view的事件分发，然后再去了解ViewGroup的事件分发
 首先你需要知道一点，那就是只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法。这个方法实现了当我们点击最顶层的ViewGroup的时候事件向下一层一层的传递给子view，我们来看一下View中dispatchTouchEvent的源码   
  
 	public boolean dispatchTouchEvent(MotionEvent event) {  
@@ -144,7 +137,7 @@ status: publish
 在这里我们见到了我们熟悉的onClick，那么一切都很清楚了，当触摸事件到达view的时候,执行dispatchTouchEvent--->setOnTouchListener--->onTouch--->onTouchEvent--->onClick,如果在onTouch方法中通过返回true将事件消费掉，onTouchEvent将不会再执行。 
  
 另外需要注意的是，onTouch能够得到执行需要两个前提条件，第一mOnTouchListener的值不能为空，第二当前点击的控件必须是enable的。因此如果你有一个控件是非enable的，那么给它注册onTouch事件将永远得不到执行。对于这一类控件，如果我们想要监听它的touch事件，就必须通过在该控件中重写onTouchEvent方法来实现。
-####我们了解完view的事件分发，接下来开始介绍ViewGroup的事件分发
+#### 我们了解完view的事件分发，接下来开始介绍ViewGroup的事件分发
 ViewGroup比起view多了一个拦截方法onInterceptTouchEvent(MotionEvent event)，主要是三步 
  
 * dispatchTouchEvent(MotionEvent event);
