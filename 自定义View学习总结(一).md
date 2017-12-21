@@ -1,11 +1,5 @@
-<!--
-author: 冷火-王胜 
-date: 2017-2-28 
-title: 自定义View学习总结(一)
-tags: Android View
-category: Android
-status: publish 
--->
+自定义view学习（一）
+====
 #####
 1.为什么会引入自定义view
 现有的控件不满足我们的需求，或者项目中频繁用到一种需要我们自定义的控件，把它封装起来提高复用性。
