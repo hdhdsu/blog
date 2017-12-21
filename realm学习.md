@@ -1,21 +1,15 @@
-<!--
-author: 冷火-王胜 
-date: 2017-2-17 
-title: realm学习
-tags: Android
-category: Android
-status: publish 
--->
-#####为什么用realm
+Realm数据库入门
+=====
+##### 为什么用realm
 android开发不仅仅是从网上获取数据并且展示,有时候我们需要把数据保存到我们本地,一般我们会想到用file,sp或者数据库sqlite,file的方式主要是IO流操作,sp是其实是使用xml的方式以键值对形式存储基本数据类型的数据。但是对于app中有复杂筛选查询的操作，file和sp都不能满足了.虽然sqlite可以满足有大量复杂查询要求的缓存数据操作。但是sqlite的使用略复杂，代码量很大.这时候就需要一种轻量级的数据库.Realm是一个可以替代SQLite以及ORM Libraries的轻量级数据库。
 
-#####realm的优势
+##### realm的优势
 * 相比SQLite，Realm更快并且具有很多现代数据库的特性，比如除了基本数据类型之外,还支持JSON.流式api，数据变更通知，以及加密支持
 * realm是一个跨平台移动数据库引擎，支持iOS、OS X（Objective-C和Swift）以及Android。这些都为移动端开发者带来了方便。
 * 性能比较高
 * 使用简单
 
-#####使用方法
+##### 使用方法
 1.在项目的build.grade中配置
 
 	apply plugin: 'realm-android'
@@ -221,7 +215,7 @@ b.条件查询
     }  
 	}
 
-#####Realm的一些坑
+##### Realm的一些坑
 
 1.查询到的结果数据 不能跨线程使用.例如在主线程中查到的结果 在线程中想使用 需要在子线程中再查一次
 
