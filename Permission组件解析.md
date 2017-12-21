@@ -1,13 +1,7 @@
-<!--
-author: 冷火-王胜 
-date: 2017-2-20
-title: Permission组件解析
-tags: Android 组件
-category: Android
-status: publish 
--->
+Permission组件解析
+=====
 Android 6.0之后，对于一些敏感的权限，需要我们手动请求，本文介绍一个权限组件Permisssion，主要是用于Android6.0以后（也就是API>23）的敏感权限请求，如果项目中的targetSdkVersion大于等于23，并且某个activity要需要一个或者多个危险权限的话可以用此组件进行判断是否拥有权限以及请求权限。
-####组件的使用
+#### 组件的使用
 1.在module的build.gradle 中增加: compile 'com.neteaseyx.permission:permission-lib:1.0.0'，
 2.创建PermissionManager对象，如果是在fragment中使用传入参数是传入 mFragment.getActivity()
 
@@ -55,7 +49,7 @@ Android 6.0之后，对于一些敏感的权限，需要我们手动请求，本
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         mPermissionManager.onRequestPermissionResult(requestCode, permissions, grantResults);
     }
-####组件内部实现
+#### 组件内部实现
 让我们看看组件内部是怎么实现的，首先是PermissionManager.requestPermissions 方法请求权限，它先判断是否所有的请求都被批准了，如果都被批准了，直接回调onGranted_Third(permissions),回调所有允许的权限，如果不是，就遍历权限集合，判断是否要用户选择，将需要用户选择的权限添加到permissionsToExplainList集合里，并转换成数组，如果数组不为空那么就弹出相应请求框
 
 注意：这里callback.onExplanation(permissionsToExplain);一般情况是用户上一次选择了拒绝（没有勾选不再询问），这次又重新请求，通常在此处还需要再次弹出请求对话框，而且这里不会自动出现权限请求弹窗, 需要在用户处理完之前提到的 "解释" 之后, 手动通过 PermissionManager.showRequestDialog 显示弹窗
