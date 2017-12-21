@@ -1,10 +1,10 @@
-Android动画
-##
+                                                                     Android动画
+======
 在app中增加一些动画效果能使我们的app更加绚丽，本文主要总结android中的Animation的使用
 
 Android中的Animation可以分为三种，View Animation,Drawable Animation ,Property Animation,其中第一种比较简单，只能实现一些简单的平移，缩放，旋转，透明度渐变的基本动画效果，第二种可以实现一种逐帧动画效果，而第三种属性动画比较复杂，Android 3.0之后出现，view动画能实现的它都能实现，除此之外还能实现很多其他的动画效果。 
  
-####1.View动画，它的实现方式有两种，XML方式和javacode方式
+#### 1.View动画，它的实现方式有两种，XML方式和javacode方式
 XML方式：
 * 新建项目，在res目录中新建anim文件夹
 * 在anim目录中新建动画代码
@@ -176,7 +176,7 @@ XML方式：
 看效果
 ![View动画2.gif](http://upload-images.jianshu.io/upload_images/4669002-80b0b1e788eae77d.gif?imageMogr2/auto-orient/strip)
 
-####2.Drawable Animation动画，它是把一帧一帧拼起来组成动画
+#### 2.Drawable Animation动画，它是把一帧一帧拼起来组成动画
 *  在res/drawable目录添加图片素材
 
 ![Paste_Image.png](http://upload-images.jianshu.io/upload_images/4669002-33addca9a2f7e74c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -233,7 +233,7 @@ XML方式：
        animationDrawable.stop(); //停止动画
 实现效果类似于下拉加载的菊花转
 
-####3.属性动画
+#### 3.属性动画
 之所以引入属性动画有三点原因：
 * 属性动画不仅可以对view操作，也能对非view的对象进行操作
 * 属性动画不单单具有View动画的那些基本动画效果，也具有其他动画效果
@@ -262,7 +262,7 @@ XML方式：
     }); 
 可以通过日志看到动画确实在执行
 
-#####ObjectAnimator
+##### ObjectAnimator
 ValueAnimator只是实现值的平滑过渡，使用场景并不是很多，而ObjectAnimator可以对任意对象的任意属性进行操作，一般我们是对view进行操作，因为ObjectAnimator是继承ValueAnimator，所以在ValueAnimator使用的方法在ObjectAnimator中也可以正常使用，直接上代码
 
             float curTrans = mIv.getTranslationX();//得到
@@ -276,7 +276,7 @@ ValueAnimator只是实现值的平滑过渡，使用场景并不是很多，而O
 
 第一个参数是view，第二个参数是动画类型，后面的参数根据动画类型的不同参数也不一样，关于第二个类型，虽然view里面没有alpha或者rotation这些属性，但是有get和set方法，其实ObjectAnimator内部的工作机制并不是直接对我们传入的属性名进行操作的，而是会去寻找这个属性名对应的get和set方法。
 
-#####AnimatorSet
+##### AnimatorSet
 AnimatorSet是用来实现组合动画的，比如我们要进行一组组合动画，先进行位移操作，再进行旋转操作，再进行淡入淡出的操作，代码如下：
 
     ObjectAnimator moveIn = ObjectAnimator.ofFloat(textview, "translationX", -500f, 0f);  //位移动画
