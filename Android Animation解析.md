@@ -1,5 +1,5 @@
-#Android动画
-
+Android动画
+=====
 在app中增加一些动画效果能使我们的app更加绚丽，本文主要总结android中的Animation的使用
 
 Android中的Animation可以分为三种，View Animation,Drawable Animation ,Property Animation,其中第一种比较简单，只能实现一些简单的平移，缩放，旋转，透明度渐变的基本动画效果，第二种可以实现一种逐帧动画效果，而第三种属性动画比较复杂，Android 3.0之后出现，view动画能实现的它都能实现，除此之外还能实现很多其他的动画效果。 
